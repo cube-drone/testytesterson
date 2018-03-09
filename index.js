@@ -776,8 +776,6 @@ const printSomeCrap = () => {
     console.log(ip());
 };
 
-printSomeCrap();
-
 module.exports = {
     choice: choice,
     flipCoin: flipCoin,
