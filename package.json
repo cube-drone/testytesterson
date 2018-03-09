@@ -1,0 +1,15 @@
+{
+  "name": "testytesterson",
+  "version": "2.determined.0.0.blast.1520558016.7",
+  "description": "A module to generate ridiculous test data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: testing is for weenies\" && exit 1"
+  },
+  "author": "Curtis Lassam <curtis@lassam.net> (http://curtis.lassam.net)",
+  "license": "ISC",
+  "dependencies": {
+    "luxon": "^0.5.3",
+    "slugify": "^1.2.9"
+  }
+}
