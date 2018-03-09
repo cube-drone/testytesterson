@@ -7,7 +7,11 @@
     "test": "echo \"Error: testing is for weenies\" && exit 1"
   },
   "author": "Curtis Lassam <curtis@lassam.net> (http://curtis.lassam.net)",
-  "license": "ISC",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/classam/testytesterson"
+  },
   "dependencies": {
     "luxon": "^0.5.3",
     "slugify": "^1.2.9"
