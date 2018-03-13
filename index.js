@@ -732,6 +732,19 @@ const ip = () => {
     return `${first}.${second}.${third}.${fourth}`;
 };
 
+const mac = () => {
+    /*
+        returns an EUI-48 mac address like "00-02-aa-86-ef-0b"
+     */
+    let octets = [];
+    for (let i = 1; i <= 6; i++) {
+        let octet = Math.floor(Math.random() * 256).toString(16);
+        octet = ('00' + octet).slice(-2);
+        octets.push(octet);
+    }
+    octets.join("-");
+};
+
 const countries = ['CA', 'BY', 'BE', 'MA', 'NO', 'OM', 'SE', 'TV', 'US', 'ZQ', 'ZM', 'GB'];
 
 const country = () => {
@@ -792,6 +805,7 @@ module.exports = {
     email: email,
     imageUrl: imageUrl,
     ip: ip,
+    mac: mac,
     country: country,
     birthdayLuxon: birthdayLuxon,
     birthdayISO: birthdayISO,
