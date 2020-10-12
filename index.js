@@ -1,6 +1,5 @@
 const slugify = require('slugify');
 const md5 = require('md5');
-const { v4 } = require('uuid');
 const {DateTime} = require('luxon');
 
 const fragments = [
@@ -1651,14 +1650,6 @@ const dumbhash = (val) => {
     return `${slugify(fragments[firstThree])}-${md.substring(2)}`;
 };
 
-const okayId = () => {
-    let id = v4();
-    
-    let firstThree = parseInt(id.substring(0,3), 16) % fragments.length;
-
-    return `${id}-${slugify(fragments[firstThree])}`;
-};
-
 const sentence = () => {
     /*
         create some words all in a row.
@@ -1789,7 +1780,6 @@ const printSomeCrap = () => {
     console.log(username());
     console.log(dumbhash(12500));
     console.log(dumbhash(username()));
-    console.log(okayId());
     console.log(shortId());
     console.log(mediumId());
     console.log(longId());
@@ -1812,7 +1802,6 @@ module.exports = {
     mediumId,
     longId,
     dumbhash,
-    okayId,
     sentence,
     lorem,
     tld,
