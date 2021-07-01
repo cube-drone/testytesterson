@@ -1,6 +1,6 @@
 {
   "name": "testytesterson",
-  "version": "9001.9001.9009",
+  "version": "9001.9001.9010",
   "description": "A module to generate ridiculous test data",
   "main": "index.js",
   "scripts": {
