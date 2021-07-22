@@ -2350,6 +2350,8 @@ const printSomeCrap = () => {
         console.log(name());
     }
     console.log("---------------------");
+    console.log(firstname());
+    console.log(thing());
     console.log(username());
     console.log(dumbhash(12500));
     console.log(dumbhash(username()));
@@ -2369,7 +2371,9 @@ const printSomeCrap = () => {
 module.exports = {
     choice,
     flipCoin,
+    firstname,
     fragment,
+    thing,
     slug,
     shortId,
     mediumId,
