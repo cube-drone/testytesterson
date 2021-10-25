@@ -43,6 +43,8 @@ const fragments = [
     'nifty',
     'katie',
     'fusl',
+    'squid',
+    'orels',
     'brian',
     'calle',
     'callie',
@@ -758,6 +760,19 @@ const fragments = [
     'skeleton',
     'dapper',
     'blook',
+    'asriel',
+    'ralsei',
+    'spamton',
+    'kromer',
+    'jevil',
+    'berdly',
+    'hathy',
+    'kris',
+    'tasque',
+    'noelle',
+    'susie',
+    'calvin',
+    'hobbes',
     'lemming',
     'glados',
     'cave',
@@ -1374,6 +1389,7 @@ const fragments = [
     'bastard',
     //  foods
     'food',
+    'smore',
     'bread',
     'ranch',
     'candy',
@@ -2212,8 +2228,9 @@ const dumbhash = (val) => {
     let md = md5(val);
 
     let firstThree = parseInt(md.substring(0,3), 16) % fragments.length;
+    let secondThree = parseInt(md.substring(3,6), 16) % fragments.length;
 
-    return `${slugify(fragments[firstThree])}-${md.substring(2)}`;
+    return `${slugify(fragments[firstThree])}-${slugify(fragments[secondThree])}`;
 };
 
 const sentence = () => {
