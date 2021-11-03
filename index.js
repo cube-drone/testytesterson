@@ -384,6 +384,51 @@ const fragments = [
     'samael',
     'schemhampharae',
     'seraph',
+    'lina',
+    //celebritos
+    'hanks',
+    'damon',
+    'brando',
+    'smith',
+    'frakes',
+    'nimoy',
+    'doohan',
+    'chekov',
+    'levar',
+    'burton',
+    'channing',
+    'tatum',
+    'tanning',
+    'chatum',
+    'depp',
+    'clooney',
+    'evans',
+    'lawrence',
+    'reynolds',
+    'pitt',
+    'rudd',
+    'hardy',
+    'pratt',
+    'perry',
+    'gadot',
+    'godot',
+    'elba',
+    'cooper',
+    'ridley',
+    // most popular names
+    'jose',
+    'nushi',
+    'maria',
+    'wei',
+    'yan',
+    'abdul',
+    'ying',
+    'juan',
+    'luis',
+    'carlos',
+    'elena',
+    'xin',
+
     //simpsons
     'homer',
     'marge',
@@ -455,6 +500,7 @@ const fragments = [
     'brandy',
     'lola',
     'angel',
+    'angeline',
     'anastasia',
     'cherry',
     'destiny',
@@ -862,6 +908,8 @@ const fragments = [
     'westminster',
     'victoria',
     'vancouver',
+    'bastad',
+    'bath',
     'poco',
     'coquitlam',
     'kensington',
@@ -1246,6 +1294,9 @@ const fragments = [
     'splarf',
     'erang',
     'copter',
+    'ploinf',
+    'ploink',
+    'franp',
     'boom',
     'topia',
     'mazing',
@@ -1271,7 +1322,21 @@ const fragments = [
     'thonp',
     'squish',
     'flap',
+    //misspelled
+    'spogooter',
+    'shramp',
+    'mofn',
+    'banaba',
+    'mork',
+    'mogno',
+    'boptats',
+    'popapo',
+    'blarborries',
+    'kurger',
+    'bing',
     //ideophone
+    'well then',
+    'welp',
     'crunch',
     'cranch',
     'boing',
@@ -1390,6 +1455,7 @@ const fragments = [
     //  foods
     'food',
     'smore',
+    'cabbage',
     'bread',
     'ranch',
     'candy',
@@ -1706,20 +1772,32 @@ const fragments = [
     'hand',
     'finger',
     'nose',
+    'nostril',
+    'canal',
+    'ear',
     'eye',
+    'heart',
+    'mouth',
+    'eyes',
+    'shoulder',
     'belly',
+    'face',
+    'arm',
+    'cheek',
+    'fur',
+    'claw',
+    'shin',
+    'snug',
+    'tube',
     'jean',
     'plan',
     'disk',
     'horse',
     'horsehorse',
     'horsehorsehorse',
+    'worm',
     'staple',
-    'face',
-    'arm',
     'ball',
-    'cheek',
-    'shin',
     'button',
     'byte',
     'canyon',
@@ -1747,7 +1825,6 @@ const fragments = [
     'space',
     'key',
     'bucket',
-    'heart',
     'stapler',
     'mug',
     'bottle',
@@ -2012,6 +2089,7 @@ const fragments = [
     'ordinary',
     'regular',
     'boring',
+    'bland',
     'mediocre',
     'forgettable',
     'fancy',
@@ -2118,6 +2196,42 @@ const tlds = [
     '.pics'
 ];
 
+const teams = [
+    'squad',
+    'tribe',
+    'corps',
+    'group',
+    'department',
+    'division',
+    'team',
+    'band',
+    'gang',
+    'club',
+    'company',
+    'party',
+    'faction',
+    'troupe',
+    'trio',
+    'outfit',
+    'bunch',
+    'community',
+    'league',
+    'mob',
+    'pack',
+    'horde',
+    'clan',
+    'association',
+    'community',
+    'cooperative',
+    'corporation',
+    'guild',
+    'league',
+    'union',
+    'organization',
+    'partnership',
+    'society',
+];
+
 const alpha = 'abcdefghijklmnopqrstuvwxyz'.split("");
 
 const alphanum = '0123456789abcdefghijklmnopqrstuvwxyz'.split("");
@@ -2132,6 +2246,10 @@ const choice = (array) => {
     }
     let randomIndex = Math.floor(Math.random() * uniqueArray.length);
     return uniqueArray[randomIndex];
+};
+
+const squad = () => {
+    return choice(teams);
 };
 
 const titleCase = (string_what_to_titlecasify) => {
@@ -2362,6 +2480,10 @@ const birthday = () => {
     return birthdayLuxon().toJSDate();
 };
 
+const groupName = () => {
+    return titleCase(`The ${fragment()} ${fragment()} ${squad()}`);
+};
+
 const printSomeCrap = () => {
     for(let i = 0; i < 10; i++){
         console.log(name());
@@ -2381,6 +2503,7 @@ const printSomeCrap = () => {
     console.log(birthdayISO());
     console.log(country());
     console.log(ip());
+    console.log(groupName());
 };
 
 //printSomeCrap();
@@ -2390,7 +2513,10 @@ module.exports = {
     flipCoin,
     firstname,
     fragment,
+    fragments,
+    names,
     thing,
+    things,
     slug,
     shortId,
     mediumId,
@@ -2412,4 +2538,5 @@ module.exports = {
     birthdayLuxon,
     birthdayISO,
     birthday,
+    groupName,
 };
