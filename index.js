@@ -93,6 +93,20 @@ const fragments = [
     'amanda',
     'xyzzy',
     'ceo',
+    // groovelet characters
+    'zariel',
+    'oth',
+    'cystam',
+    'kiro',
+    'audient',
+    'mersenne',
+    'world',
+    'path',
+    'curopal',
+    'blit',
+    'stacks',
+    'misk',
+    'groovelet',
     //rutherford
     'rutherford',
     'marcus',
@@ -167,7 +181,6 @@ const fragments = [
     'pubert',
     'olga',
     'alicia',
-    'eugene',
     'fluffy',
     'boris',
     'ian',
@@ -192,7 +205,6 @@ const fragments = [
     'missing texture',
     'elizabreth',
     'belizabort',
-    'elizabeth',
     'beth',
     'bethany',
     'many bothans',
@@ -200,6 +212,7 @@ const fragments = [
     'olivia',
     'maverick',
     'beberly',
+    'ermagerd',
     'danger',
     'merika',
     'yunique',
@@ -209,7 +222,8 @@ const fragments = [
     'derfla',
     'phelony',
     'moxie',
-    'garden',
+    'jessifer',
+    'brick',
     'jammy',
     'mazen',
     'hunk',
@@ -218,19 +232,20 @@ const fragments = [
     'blanket',
     'jermajesty',
     'moon unit',
-    'kimmy',
     'billy bob',
-    'gertrude',
     'pillow',
     'pill',
-    'jessifer',
-    'brick',
+    // just... names, I guess?
     'hope',
+    'gertrude',
     'jack',
     'keith',
     'helga',
     'tiny',
+    'kimmy',
     'willy',
+    'elizabeth',
+    'garden',
     'lawrence',
     'jessica',
     'king',
@@ -256,6 +271,7 @@ const fragments = [
     'lorenzo',
     'antonio',
     'vito',
+    'eugene',
     'norberto',
     'diego',
     'luca',
@@ -275,7 +291,6 @@ const fragments = [
     'trenton',
     'chad',
     'chadwick',
-    'ermagerd',
     'harry',
     'steve',
     'storve',
@@ -363,7 +378,6 @@ const fragments = [
     'fyodor',
     'mark',
     'quigley',
-    'ender',
     'endor',
     //norse gods
     'thor',
@@ -450,6 +464,12 @@ const fragments = [
     'captain',
     'marshal',
     'lieutenant',
+    'the',
+    'the incredible',
+    'the vast',
+    'the endless',
+    'the unforgettable',
+    'the wonderful',
     'mister',
     'mr',
     'doctor',
@@ -532,6 +552,12 @@ const fragments = [
     'iroh',
     'appa',
     'azula',
+    'suki',
+    'jet',
+    'tenzin',
+    'bolin',
+    'lin',
+    'mako',
     //ricks
     'morty',
     'rick',
@@ -579,6 +605,7 @@ const fragments = [
     'cheat',
     'coach',
     'bubs',
+    'homsar',
     // homestucks
     'sassacre',
     'jegus',
@@ -1070,6 +1097,21 @@ const fragments = [
     'eartha',
     'chaca',
     'tipo',
+    // gideons
+    'gideon',
+    'harrow',
+    'harrowhark',
+    'tamsyn',
+    'ortus',
+    'lyctor',
+    'palamedes',
+    'camilla',
+    'abigail',
+    'magnus',
+    'dulcinea',
+    'ianthe',
+    'judith',
+    'silas',
     // umbrella
     'hazel',
     'chacha',
@@ -1243,7 +1285,7 @@ const fragments = [
     'basic',
     'cobol',
     'fortran',
-    'coldfusion',
+    'flash',
     'mumps',
     'caml',
     'delphi',
@@ -1293,6 +1335,7 @@ const fragments = [
     'squiff',
     'splarf',
     'erang',
+    'bring',
     'copter',
     'ploinf',
     'ploink',
@@ -1597,6 +1640,7 @@ const fragments = [
     'sink',
     'gpu',
     'drive',
+    'crate',
     // misc
     'stain',
     'spot',
@@ -2077,6 +2121,8 @@ const fragments = [
     'relish',
     'mustard',
     'ketchup',
+    'beer',
+    'wine',
     'vinegar',
     'malt',
     'socks',
@@ -2481,7 +2527,12 @@ const birthday = () => {
 };
 
 const groupName = () => {
-    return titleCase(`The ${fragment()} ${fragment()} ${squad()}`);
+    return choice([
+        titleCase(`The ${thing()} ${thing()} ${squad()}`),
+        titleCase(`The ${squad()} of ${thing()} ${thing()}s`),
+        titleCase(`${thing()} ${thing()} ${squad()}`),
+        titleCase(`${thing()}-${thing()} ${squad()}`),
+    ])
 };
 
 const printSomeCrap = () => {
@@ -2506,7 +2557,7 @@ const printSomeCrap = () => {
     console.log(groupName());
 };
 
-//printSomeCrap();
+printSomeCrap();
 
 module.exports = {
     choice,
