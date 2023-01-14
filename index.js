@@ -1,6 +1,5 @@
 const slugify = require('slugify');
 const crypto = require('crypto');
-const {DateTime} = require('luxon');
 
 const fragments = [
     'curtis',
@@ -2503,28 +2502,22 @@ const country = () => {
     return choice(countries);
 };
 
-const birthdayLuxon = () => {
-    /*
-        returns a birthday as a Luxon date
-     */
-    let years_ago = 13 + Math.floor(Math.random() * 40);
-    let months_ago = Math.floor(Math.random() * 12);
-    let days_ago = Math.floor(Math.random() * 20);
-    return DateTime.local().minus({years: years_ago, months: months_ago, days: days_ago})
-};
-
 const birthdayISO = () => {
     /*
         returns a birthday as an ISO date
      */
-    return birthdayLuxon().toISO();
+    return birthday().toISOString();
 };
 
 const birthday = () => {
     /*
         returns a birthday as a JS Date
      */
-    return birthdayLuxon().toJSDate();
+    let the_date = new Date();
+    the_date.setMonth(the_date.getMonth()-(Math.floor(Math.random() * 12)));
+    the_date.setDate(the_date.getDate()-(Math.floor(Math.random() * 20)));
+    the_date.setFullYear(the_date.getFullYear()-(13 + Math.floor(Math.random() * 40)));
+    return the_date;
 };
 
 const groupName = () => {
@@ -2587,7 +2580,6 @@ module.exports = {
     ip,
     mac,
     country,
-    birthdayLuxon,
     birthdayISO,
     birthday,
     groupName,
