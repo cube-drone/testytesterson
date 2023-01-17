@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: testing is for weenies\" && exit 1"
   },
-  "author": "Cube Drone <testytesterson@gooble.email> (http://cube-drone.com)",
+  "author": "Cube Drone <testytesterson@gooble.email> (https://cube-drone.com)",
   "license": "GPL-3.0-or-later",
   "repository": {
     "type": "git",

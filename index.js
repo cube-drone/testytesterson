@@ -2304,7 +2304,7 @@ const titleCase = (string_what_to_titlecasify) => {
         convert a string "like this" into a string "Like This"
     */
     let str = string_what_to_titlecasify.replace(/([^\W_]+[^\s-]*) */g, function(txt) {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        return txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase();
     });
 
     // Certain minor words should be left lowercase unless
@@ -2403,14 +2403,14 @@ const sentence = () => {
      */
     let sentenceLength = 5 + Math.floor(Math.random() * 5);
 
-    return titleCase(fragment()) + " " + Array.from({length: sentenceLength}, (x, i) => fragment()).join(" ") + ".";
+    return titleCase(fragment()) + " " + Array.from({length: sentenceLength}, () => fragment()).join(" ") + ".";
 };
 
 const lorem = () => {
     /*
         create some words all in a row.
      */
-    return Array.from({length: 5}, (x, i) => sentence()).join(" ");
+    return Array.from({length: 5}, () => sentence()).join(" ");
 };
 
 const hexarray = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
@@ -2490,7 +2490,7 @@ const mac = () => {
         octet = ('00' + octet).slice(-2);
         octets.push(octet);
     }
-    octets.join("-");
+    return octets.join("-");
 };
 
 const countries = ['CA', 'BY', 'BE', 'MA', 'NO', 'OM', 'SE', 'TV', 'US', 'ZQ', 'ZM', 'GB'];
@@ -2529,27 +2529,27 @@ const groupName = () => {
     ])
 };
 
-const printSomeCrap = () => {
-    for(let i = 0; i < 10; i++){
-        console.log(name());
-    }
-    console.log("---------------------");
-    console.log(firstname());
-    console.log(thing());
-    console.log(username());
-    console.log(dumbhash(12500));
-    console.log(dumbhash(username()));
-    console.log(shortId());
-    console.log(mediumId());
-    console.log(longId());
-    console.log(email());
-    console.log(lorem());
-    console.log(imageUrl());
-    console.log(birthdayISO());
-    console.log(country());
-    console.log(ip());
-    console.log(groupName());
-};
+// const printSomeCrap = () => {
+//     for(let i = 0; i < 10; i++){
+//         console.log(name());
+//     }
+//     console.log("---------------------");
+//     console.log(firstname());
+//     console.log(thing());
+//     console.log(username());
+//     console.log(dumbhash(12500));
+//     console.log(dumbhash(username()));
+//     console.log(shortId());
+//     console.log(mediumId());
+//     console.log(longId());
+//     console.log(email());
+//     console.log(lorem());
+//     console.log(imageUrl());
+//     console.log(birthdayISO());
+//     console.log(country());
+//     console.log(ip());
+//     console.log(groupName());
+// };
 
 //printSomeCrap();
 
