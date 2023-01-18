@@ -1,6 +1,5 @@
 const slugify = require('slugify');
-const md5 = require('md5');
-const {DateTime} = require('luxon');
+const crypto = require('crypto');
 
 const fragments = [
     'curtis',
@@ -2304,24 +2303,23 @@ const titleCase = (string_what_to_titlecasify) => {
     /*
         convert a string "like this" into a string "Like This"
     */
-    var i, j, str, lowers, uppers;
-    str = string_what_to_titlecasify.replace(/([^\W_]+[^\s-]*) */g, function(txt) {
-        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+    let str = string_what_to_titlecasify.replace(/([^\W_]+[^\s-]*) */g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substring(1).toLowerCase();
     });
 
     // Certain minor words should be left lowercase unless
     // they are the first or last words in the string
-    lowers = ['A', 'An', 'The', 'And', 'But', 'Or', 'For', 'Nor', 'As', 'At',
+    const lowers = ['A', 'An', 'The', 'And', 'But', 'Or', 'For', 'Nor', 'As', 'At',
         'By', 'For', 'From', 'In', 'Into', 'Near', 'Of', 'On', 'Onto', 'To', 'With'];
-    for (i = 0, j = lowers.length; i < j; i++)
+    for (let i = 0, j = lowers.length; i < j; i++)
         str = str.replace(new RegExp('\\s' + lowers[i] + '\\s', 'g'),
             function(txt) {
                 return txt.toLowerCase();
             });
 
     // Certain words such as initialisms or acronyms should be left uppercase
-    uppers = ['Id', 'Tv'];
-    for (i = 0, j = uppers.length; i < j; i++)
+    const uppers = ['Id', 'Tv'];
+    for (let i = 0, j = uppers.length; i < j; i++)
         str = str.replace(new RegExp('\\b' + uppers[i] + '\\b', 'g'),
             uppers[i].toUpperCase());
 
@@ -2391,7 +2389,7 @@ const longId = () => {
 };
 
 const dumbhash = (val) => {
-    let md = md5(val);
+    let md = crypto.createHash('md5').update(val).digest('hex');
 
     let firstThree = parseInt(md.substring(0,3), 16) % fragments.length;
     let secondThree = parseInt(md.substring(3,6), 16) % fragments.length;
@@ -2405,14 +2403,14 @@ const sentence = () => {
      */
     let sentenceLength = 5 + Math.floor(Math.random() * 5);
 
-    return titleCase(fragment()) + " " + Array.from({length: sentenceLength}, (x, i) => fragment()).join(" ") + ".";
+    return titleCase(fragment()) + " " + Array.from({length: sentenceLength}, () => fragment()).join(" ") + ".";
 };
 
 const lorem = () => {
     /*
         create some words all in a row.
      */
-    return Array.from({length: 5}, (x, i) => sentence()).join(" ");
+    return Array.from({length: 5}, () => sentence()).join(" ");
 };
 
 const hexarray = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
@@ -2492,7 +2490,7 @@ const mac = () => {
         octet = ('00' + octet).slice(-2);
         octets.push(octet);
     }
-    octets.join("-");
+    return octets.join("-");
 };
 
 const countries = ['CA', 'BY', 'BE', 'MA', 'NO', 'OM', 'SE', 'TV', 'US', 'ZQ', 'ZM', 'GB'];
@@ -2504,28 +2502,22 @@ const country = () => {
     return choice(countries);
 };
 
-const birthdayLuxon = () => {
-    /*
-        returns a birthday as a Luxon date
-     */
-    let years_ago = 13 + Math.floor(Math.random() * 40);
-    let months_ago = Math.floor(Math.random() * 12);
-    let days_ago = Math.floor(Math.random() * 20);
-    return DateTime.local().minus({years: years_ago, months: months_ago, days: days_ago})
-};
-
 const birthdayISO = () => {
     /*
         returns a birthday as an ISO date
      */
-    return birthdayLuxon().toISO();
+    return birthday().toISOString();
 };
 
 const birthday = () => {
     /*
         returns a birthday as a JS Date
      */
-    return birthdayLuxon().toJSDate();
+    let the_date = new Date();
+    the_date.setMonth(the_date.getMonth()-(Math.floor(Math.random() * 12)));
+    the_date.setDate(the_date.getDate()-(Math.floor(Math.random() * 20)));
+    the_date.setFullYear(the_date.getFullYear()-(13 + Math.floor(Math.random() * 40)));
+    return the_date;
 };
 
 const groupName = () => {
@@ -2537,27 +2529,27 @@ const groupName = () => {
     ])
 };
 
-const printSomeCrap = () => {
-    for(let i = 0; i < 10; i++){
-        console.log(name());
-    }
-    console.log("---------------------");
-    console.log(firstname());
-    console.log(thing());
-    console.log(username());
-    console.log(dumbhash(12500));
-    console.log(dumbhash(username()));
-    console.log(shortId());
-    console.log(mediumId());
-    console.log(longId());
-    console.log(email());
-    console.log(lorem());
-    console.log(imageUrl());
-    console.log(birthdayISO());
-    console.log(country());
-    console.log(ip());
-    console.log(groupName());
-};
+// const printSomeCrap = () => {
+//     for(let i = 0; i < 10; i++){
+//         console.log(name());
+//     }
+//     console.log("---------------------");
+//     console.log(firstname());
+//     console.log(thing());
+//     console.log(username());
+//     console.log(dumbhash(12500));
+//     console.log(dumbhash(username()));
+//     console.log(shortId());
+//     console.log(mediumId());
+//     console.log(longId());
+//     console.log(email());
+//     console.log(lorem());
+//     console.log(imageUrl());
+//     console.log(birthdayISO());
+//     console.log(country());
+//     console.log(ip());
+//     console.log(groupName());
+// };
 
 //printSomeCrap();
 
@@ -2588,7 +2580,6 @@ module.exports = {
     ip,
     mac,
     country,
-    birthdayLuxon,
     birthdayISO,
     birthday,
     groupName,

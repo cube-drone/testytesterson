@@ -1,20 +1,21 @@
 {
   "name": "testytesterson",
-  "version": "9001.9001.9017",
+  "version": "9001.9001.9018",
   "description": "A module to generate ridiculous test data",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: testing is for weenies\" && exit 1"
   },
-  "author": "Cube Drone <testytesterson@gooble.email> (http://cube-drone.com)",
+  "author": "Cube Drone <testytesterson@gooble.email> (https://cube-drone.com)",
   "license": "GPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cube_drone/testytesterson"
+    "url": "https://github.com/cube-drone/testytesterson"
   },
   "dependencies": {
-    "luxon": "^0.5.3",
-    "md5": "^2.3.0",
-    "slugify": "^1.2.9"
+    "slugify": "^1.6.5"
+  },
+  "engines": {
+    "node": ">=14.20.1"
   }
 }
