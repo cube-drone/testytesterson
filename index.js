@@ -1,6 +1,113 @@
 const slugify = require('slugify');
 const crypto = require('crypto');
 
+const breads = [
+	"arepa",
+	"babka",
+	"bagel",
+	"baguette",
+	"bannock",
+	"barmbrack",
+	"bauernbrot",
+	"beerbread",
+	"bhakri",
+	"bialy",
+	"borodinskybread",
+	"bosnianlepinja",
+	"boule",
+	"brioche",
+	"broa",
+	"bublik",
+	"cassavabread",
+	"challah",
+	"chapati",
+	"cheesebread",
+	"chocolatebabka",
+	"ciabatta",
+	"cinnamonswirl",
+	"coconutbread",
+	"coppiaferrarese",
+	"cottageloaf",
+	"couronne",
+	"crumpet",
+	"damper",
+	"danishryebread",
+	"englishmuffin",
+	"farl",
+	"focaccia",
+	"folar",
+	"fougasse",
+	"frenchtoast",
+	"frybread",
+	"garlicbread",
+	"greenonioncake",
+	"gözleme",
+	"hojaldras",
+	"honeywheatbread",
+	"injera",
+	"irishsodabread",
+	"kaiserroll",
+	"kalach",
+	"khubz",
+	"kletzenbrot",
+	"kornspitz",
+	"korovai",
+	"kulcha",
+	"lardycake",
+	"lavash",
+	"lefse",
+	"limpabread",
+	"lussekatt",
+	"mantou",
+	"matzo",
+	"monkeybread",
+	"monksbread",
+	"muffuletta",
+	"multigrain",
+	"naan",
+	"pandemuerto",
+	"pandoro",
+	"panettone",
+	"paratha",
+	"pestobread",
+	"pide",
+	"pita",
+	"pretzelbread",
+	"pretzelroll",
+	"pumpernickel",
+	"roti",
+	"rugbrød",
+	"ruisleipä",
+	"rumraisinbread",
+	"rye",
+	"saffronbread",
+	"scalibread",
+	"schiacciata",
+	"sesameseedbread",
+	"simit",
+	"slicedbread",
+	"slovenianpotica",
+	"soparnik",
+	"sourdough",
+	"speckendicken",
+	"speltbread",
+	"teacake",
+	"tigella",
+	"tortilla",
+	"tsitselikis",
+	"tsoureki",
+	"tunnbröd",
+	"vetkoek",
+	"vánočka",
+	"walnutbread",
+	"white",
+	"wholewheat",
+	"yufka",
+	"zopf",
+	"zucchinibread",
+	"zwieback"
+];
+
 const fragments = [
     'curtis',
     'curt',
@@ -2223,7 +2330,7 @@ const fragments = [
     'slime',
     'clap',
     'quig',
-];
+].concat(breads);
 
 const names = fragments.slice(0, fragments.indexOf('names'));
 const things = fragments.slice(fragments.indexOf('names'));
@@ -2355,6 +2462,13 @@ const tld = () => {
         choose a random tld
      */
     return choice(tlds);
+};
+
+const bread = () => {
+    /*
+        choose a random type of bread
+     */
+    return choice(breads);
 };
 
 const slug = () => {
@@ -2562,6 +2676,8 @@ module.exports = {
     names,
     thing,
     things,
+    bread,
+    breads,
     slug,
     shortId,
     mediumId,
