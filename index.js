@@ -2339,7 +2339,7 @@ const breads = [
 	"mantou",
 	"matzo",
 	"monkeybread",
-	"monks'bread",
+	"monksbread",
 	"muffuletta",
 	"multigrain",
 	"naan",
